@@ -11,9 +11,9 @@ interface Props {
 
 function Hero({ currentSlide, titlesRef, nextSlide, prevSlide }: Props) {
   const titles: string[] = [
-    `Sifa World is the best contract Company.`,
-    `Lorem ipsum dolor sit amet consectetur.`,
-    `Similique eum magni veniam deserunt.`,
+    `Welcome to Sifa World.`,
+    `Innovative Solutions, Endless Possibilities.`,
+    `Building Future, One Deal at a Time.`,
   ];
 
   return (
@@ -23,7 +23,7 @@ function Hero({ currentSlide, titlesRef, nextSlide, prevSlide }: Props) {
           <h1 className="text-4xl md:text-6xl font-light">
             Sifa World Nigeria.
           </h1>
-          <p>Lorem ipsum dolor sit amet consectetur.</p>
+          <p>Where Business Meets Excellence.</p>
           <Link
             href={"/about"}
             className="w-fit bg-secondary rounded-full px-7 py-3 uppercase text-sm text-white"
@@ -56,7 +56,7 @@ function Hero({ currentSlide, titlesRef, nextSlide, prevSlide }: Props) {
           </div>
         </div>
         <div className="flex flex-col space-y-6 w-full">
-          <span className="opacity-70 uppercase">Lorem ipsum dolor</span>
+          <span className="opacity-70 uppercase">Industry Professionals</span>
           <div className="relative">
             <h1
               className="text-4xl md:text-6xl font-semi-bold max-w-xl invisible"
@@ -78,7 +78,9 @@ function Hero({ currentSlide, titlesRef, nextSlide, prevSlide }: Props) {
               </h1>
             ))}
           </div>
-          <p className="opacity-70">Lorem ipsum dolor sit amet.</p>
+          <p className="opacity-70">
+            Pioneering Trades, Transforming Real Estate.
+          </p>
           <Link
             href={"/about"}
             className="w-fit border border-white border-opacity-70 rounded-full px-7 py-3 uppercase text-sm text-white"

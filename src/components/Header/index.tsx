@@ -125,7 +125,7 @@ function Header() {
   };
 
   return (
-    <header className="relative h-[75vh] md:h-screen w-full overflow-hidden">
+    <header className="relative h-[75vh] md:h-screen w-full overflow-hidden border-b">
       {images.map((image, index) => (
         <img
           data-scroll

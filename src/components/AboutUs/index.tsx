@@ -11,19 +11,16 @@ function AboutUs() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const testimonials = [
     {
-      customer: "John Doe",
-      text: `Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ut
-                  rem, nostrum repudiandae doloribus reiciendis.`,
+      customer: "John",
+      text: `Sifa World has been instrumental in expanding our reach and improving our trade operations. Their expertise and quality service have helped us achieve new milestones in business.`,
     },
     {
-      customer: "Usman Doe",
-      text: `rem accusamus autem ea
-              aspernatur deleniti iste assumenda?`,
+      customer: "Usman",
+      text: `We’ve trusted Sifa World for our real estate investments, and they’ve never disappointed. Their guidance and market knowledge have made all the difference in our property ventures.`,
     },
     {
-      customer: "Shuaibu Doe",
-      text: `dolor sit amet consectetur adipisicing elit. Ut rem,
-              nostrum repudiandae doloribus reiciendis, hic.`,
+      customer: "Shuaibu",
+      text: `From trading solutions to merchandising, Sifa World consistently delivers top-notch service. Their professionalism and commitment to excellence have made them a trusted partner for our company.`,
     },
   ];
 
@@ -125,10 +122,14 @@ function AboutUs() {
           </div>
           <div>
             <p ref={firstContentRef}>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ut rem,
-              nostrum repudiandae doloribus reiciendis, hic, labore laudantium
-              eum voluptate porro quam. Explicabo rem accusamus autem ea
-              aspernatur deleniti iste assumenda?
+              Sifa World is a dynamic and diversified company specializing in
+              general trading, merchandise, and real estate development. Our
+              commitment to excellence drives us to provide high-quality
+              products and services that meet the ever-evolving needs of
+              businesses and individuals alike. Whether you're looking for
+              premium trading solutions, commercial or residential real estate,
+              or unique business opportunities, Sifa World is here to help you
+              succeed.
             </p>
           </div>
         </div>
@@ -142,25 +143,28 @@ function AboutUs() {
         <Container>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-24 md:gap-40 lg:gap-72 mb-24 md:mb-28 relative text-center md:text-left">
             <div>
-              <p className="about-comp-2 text-2xl md:text-4xl text-accent mb-10 md:mb-20">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ut rem
+              <p className="about-comp-2 text-2xl md:text-4xl text-white mb-10 md:mb-20">
+                Unlocking New Horizons in Business.
               </p>
               <Link
                 href={"/about"}
-                className="about-comp-2 px-10 py-4 border border-accent text-accent rounded-full uppercase"
+                className="about-comp-2 px-10 py-4 border border-accent text-white rounded-full uppercase"
               >
                 Read More
               </Link>
             </div>
-            <div className="text-accent md:text-inherit">
+            <div className="text-white md:text-inherit">
               <h3 className="about-comp-2 text-2xl md:text-5xl mb-5 md:mb-8 font-semibold">
-                We Give Back
+                Where Vision Meets Opportunity.
               </h3>
               <p className="about-comp-2">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ut
-                rem, nostrum repudiandae doloribus reiciendis, hic, labore
-                laudantium eum voluptate porro quam. Explicabo rem accusamus
-                autem ea aspernatur deleniti iste assumenda?
+                Sifa World is a versatile and forward-thinking company
+                specializing in general trading, merchandise, and real estate.
+                We are dedicated to delivering high-quality products, services,
+                and investment opportunities that foster growth and innovation
+                for businesses and individuals alike. With years of experience
+                in the industry, we understand the importance of trust,
+                reliability, and strategic partnerships in driving success.
               </p>
             </div>
           </div>
@@ -176,7 +180,7 @@ function AboutUs() {
                 className="w-full h-full object-cover mix-blend-multiply absolute top-0 left-0 bottom-0 right-0 "
               />
               <h2 className="text-white text-4xl md:text-7xl text-center opacity-80 italic">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit
+                Unlocking New Horizons in Business.
               </h2>
             </div>
           </div>
@@ -188,16 +192,23 @@ function AboutUs() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-28 md:gap-40 lg:gap-72 py-24 md:py-40 relative">
             <div className="flex flex-col space-y-8">
               <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ut
-                rem, nostrum repudiandae doloribus reiciendis, hic, labore
-                laudantium eum voluptate porro quam. Explicabo rem accusamus
-                autem ea aspernatur deleniti iste assumenda?
+                Our general trading division sources and distributes a wide
+                variety of products, ensuring our clients have access to
+                top-tier merchandise that meets their needs. In real estate, we
+                focus on both commercial and residential properties, offering
+                development, sales, and management solutions designed to
+                maximize value. Additionally, our expert consultancy services
+                guide businesses through the complexities of trade and real
+                estate investments, providing tailored strategies for long-term
+                growth.
               </p>
               <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ut
-                rem, nostrum repudiandae doloribus reiciendis, hic, labore
-                laudantium eum voluptate porro quam. Explicabo rem accusamus
-                autem ea aspernatur deleniti iste assumenda?
+                At Sifa World, we believe in creating lasting relationships and
+                empowering clients to achieve their goals through innovative
+                solutions and a commitment to excellence. Whether you are
+                looking to expand your business, invest in real estate, or
+                explore new trading opportunities, Sifa World is here to help
+                you succeed.
               </p>
               <Link
                 href={"/about"}

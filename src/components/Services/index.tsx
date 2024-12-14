@@ -20,27 +20,27 @@ interface Service {
 function Services() {
   const services: Service[] = [
     {
-      title: "Service One",
-      description: `Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Recusandae tempore amet rerum at.`,
+      title: "General Merchandising",
+      description: `
+We provide a wide range of quality products sourced from trusted suppliers, meeting diverse business needs.`,
       icon: SERVICES_ICON_1.src,
     },
     {
-      title: "Service Two",
-      description: `Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Recusandae tempore amet rerum at.`,
+      title: "Trading Solutions",
+      description: `
+Offering innovative trading services and connecting businesses to global markets for growth and profit.`,
       icon: SERVICES_ICON_2.src,
     },
     {
-      title: "Service Three",
-      description: `Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Recusandae tempore amet rerum at.`,
+      title: "Real Estate Development",
+      description: `
+We specialize in residential and commercial properties, providing tailored solutions for every investment.`,
       icon: SERVICES_ICON_3.src,
     },
     {
-      title: "Service Four",
-      description: `Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Recusandae tempore amet rerum at.`,
+      title: "Business Consultancy",
+      description: `
+Expert advice and strategic solutions to help you optimize operations and expand your business.`,
       icon: SERVICES_ICON_4.src,
     },
   ];
@@ -86,10 +86,14 @@ function Services() {
               Our services
             </h2>
             <p className="opacity-70">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Non
-              asperiores maxime nemo cupiditate quis atque. Natus, in. Facilis
-              ipsa molestiae eius esse porro debitis quos, qui, omnis est
-              repudiandae dolore.
+              At Sifa World, we offer a range of comprehensive services tailored
+              to meet your business and investment needs. From general trading
+              and merchandise supply to real estate development and consultancy,
+              we deliver solutions that drive growth, maximize profitability,
+              and create lasting value. Whether you're looking to expand your
+              business, invest in properties, or explore new trading
+              opportunities, our expert team is here to guide you every step of
+              the way.
             </p>
           </div>
           <div
