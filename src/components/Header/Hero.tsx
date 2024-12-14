@@ -1,92 +1,123 @@
-import React, { useEffect, useLayoutEffect, useRef } from "react";
-import Container from "../Container";
-import ButtonLink from "../ButtonLink";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Link from "next/link";
+import React from "react";
+import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
 
 interface Props {
-  currentImageIndex: number;
+  currentSlide: number;
+  titlesRef: React.MutableRefObject<HTMLElement[]>;
+  nextSlide: () => void;
+  prevSlide: () => void;
 }
 
-const titles = [
-  "Boko Agro Allied",
-  "Agricultural Sustainability",
-  "Modern Agriculture",
-];
-
-function Hero({ currentImageIndex }: Props) {
-  const titleRefs = useRef<(HTMLHeadingElement | null)[]>([]);
-  const hideTimelines = useRef(
-    titles.map(() => gsap.timeline({ paused: true }))
-  );
-  const showTimelines = useRef(
-    titles.map(() => gsap.timeline({ paused: true }))
-  );
-
-  useLayoutEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-
-    // Initialize hide and show animations
-    hideTimelines.current.forEach((tl, index) => {
-      tl.to(titleRefs.current[index], {
-        opacity: 0,
-        y: 10, // Hide the element
-      });
-    });
-
-    showTimelines.current.forEach((tl, index) => {
-      tl.to(titleRefs.current[index], {
-        opacity: 1,
-        y: 0, // Show the element
-      });
-    });
-
-    // Ensure refs array length matches titles
-    titleRefs.current = titleRefs.current.slice(0, titles.length);
-  }, []);
-
-  useEffect(() => {
-    // Restart animations for the current index
-    hideTimelines.current[currentImageIndex]?.restart();
-    showTimelines.current[(currentImageIndex + 1) % titles.length]?.restart();
-  }, [currentImageIndex]);
+function Hero({ currentSlide, titlesRef, nextSlide, prevSlide }: Props) {
+  const titles: string[] = [
+    `Sifa World is the best contract Company.`,
+    `Lorem ipsum dolor sit amet consectetur.`,
+    `Similique eum magni veniam deserunt.`,
+  ];
 
   return (
-    <div className="md:relative h-[50vh] md:h-[80vh] flex items-center">
-      <Container>
-        <div className="z-30 relative">
-          <div className="flex flex-col space-y-7 md:space-y-9 max-w-lg">
-            <div>
-              {titles.map((title, index) => (
-                <h1
-                  key={index}
-                  ref={(el) => {
-                    titleRefs.current[index] = el;
-                  }}
-                  className={`text-4xl md:text-6xl lg:text-7xl font-heading font-semibold italic opacity-0 max-w-lg ${
-                    (currentImageIndex + 1) % titles.length === index
-                      ? "static"
-                      : "absolute"
-                  }`}
-                >
-                  {title}
-                </h1>
-              ))}
+    <div className="relative flex-1 flex ">
+      <div className="hidden max-w-md w-full bg-white h-full xl:flex items-end p-5 md:p-20">
+        <div className="flex flex-col space-y-8">
+          <h1 className="text-4xl md:text-6xl font-light">
+            Sifa World Nigeria.
+          </h1>
+          <p>Lorem ipsum dolor sit amet consectetur.</p>
+          <Link
+            href={"/about"}
+            className="w-fit bg-secondary rounded-full px-7 py-3 uppercase text-sm text-white"
+          >
+            Learn More
+          </Link>
+        </div>
+      </div>
+      <div className="flex-1 p-5 md:p-20 h-full flex items-end text-white relative">
+        <div className="absolute right-5 md:right-20 top-0 bottom-0 h-full flex items-center">
+          <div className="flex flex-col items-center space-y-5">
+            <Link
+              href={"x.com"}
+              className="w-8 h-8 text-xl flex items-center justify-center text-white"
+            >
+              <FaTwitter />
+            </Link>
+            <Link
+              href={"facebook.com"}
+              className="w-8 h-8 text-xl flex items-center justify-center text-white"
+            >
+              <FaFacebook />
+            </Link>
+            <Link
+              href={"instagram.com"}
+              className="w-8 h-8 text-xl flex items-center justify-center text-white"
+            >
+              <FaInstagram />
+            </Link>
+          </div>
+        </div>
+        <div className="flex flex-col space-y-6 w-full">
+          <span className="opacity-70 uppercase">Lorem ipsum dolor</span>
+          <div className="relative">
+            <h1
+              className="text-4xl md:text-6xl font-semi-bold max-w-xl invisible"
+              data-nosnippet
+            >
+              {titles[0]}
+            </h1>
+            {titles.map((title, index) => (
+              <h1
+                ref={(el) => {
+                  if (el) titlesRef.current[index] = el;
+                }}
+                key={index}
+                className={`text-4xl md:text-6xl font-semi-bold max-w-xl absolute top-0 left-0 ${
+                  index === currentSlide ? "opacity-100" : "opacity-0"
+                }`}
+              >
+                {title}
+              </h1>
+            ))}
+          </div>
+          <p className="opacity-70">Lorem ipsum dolor sit amet.</p>
+          <Link
+            href={"/about"}
+            className="w-fit border border-white border-opacity-70 rounded-full px-7 py-3 uppercase text-sm text-white"
+          >
+            Learn More
+          </Link>
+          <div className="flex w-full pt-10 items-center space-x-5">
+            <div>0{currentSlide + 1} -03</div>
+            <div className="flex-1 flex items-center">
+              {Array(3)
+                .fill("")
+                .map((_, index) => (
+                  <div
+                    key={index}
+                    className={`h-[2px] bg-white flex-1 transition-all duration-500 ${
+                      index === currentSlide ? "opacity-70" : "opacity-30"
+                    }`}
+                  />
+                ))}
             </div>
-
-            <p className="opacity-70">
-              Empowering Agriculture, Transforming Lives. Innovative solutions
-              for a sustainable farming future.
-            </p>
-            <div className="flex space-x-3">
-              <ButtonLink href="/about">Read More</ButtonLink>
-              <ButtonLink type="white" href="/about">
-                Contact Us ➝
-              </ButtonLink>
+            <div className="flex space-x-2 z-30">
+              <button
+                onClick={prevSlide}
+                aria-label="Previous Slide"
+                className="bg-white text-gray-700 rounded-full h-12 w-12 flex items-center justify-center"
+              >
+                ←
+              </button>
+              <button
+                onClick={nextSlide}
+                aria-label="Next Slide"
+                className="bg-white text-gray-700 rounded-full h-12 w-12 flex items-center justify-center"
+              >
+                ➝
+              </button>
             </div>
           </div>
         </div>
-      </Container>
+      </div>
     </div>
   );
 }

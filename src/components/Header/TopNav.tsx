@@ -1,36 +1,67 @@
-import React from "react";
-import Container from "../Container";
+"use client";
+
 import { LOGO } from "@/constants/IMAGES";
-import NavMenu from "./NavMenu";
-import ButtonLink from "../ButtonLink";
+import Link from "next/link";
+import React, { useState } from "react";
+import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
+import MobileMenu from "./MobileMenu";
+import { menuItems } from "@/constants/menu";
 
-interface Props {
-  type?: "page" | "home";
-}
+function TopNav() {
+  const [isOpen, setIsOpen] = useState(false);
 
-function TopNav({ type = "home" }: Props) {
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
-    <div className="z-50 relative border-b border-white border-opacity-25">
-      <Container>
-        <div className="flex justify-between py-3 items-center">
-          <div className="flex items-center">
-            <div
-              className={`${type === "home" ? "bg-green-800" : "bg-white"} p-2`}
-            >
-              <img src={LOGO.src} alt="logo" className="w-16" />
+    <div className="relative min-h-20 border-b border-white border-opacity-50 flex">
+      <div className="xl:max-w-md w-full bg-white h-full flex items-center justify-between px-5 md:px-20">
+        <Link href={"/"}>
+          <div className="flex items-center space-x-3 text-primary">
+            <img src={LOGO.src} alt="logo" className="h-12 md:h-14" />
+            <div>
+              <h2 className="font-bold uppercase text-xl md:text-2xl tracking-wide">
+                Sifa World
+              </h2>
+              <div className="uppercase text-sm text-primary tracking-widest">
+                Nigeria Limited
+              </div>
             </div>
-            <NavMenu />
           </div>
-          <div className="hidden md:block">
-            <ButtonLink
-              type={type === "home" ? "primary" : "white"}
-              href="/contact"
-            >
-              Get in Touch
-            </ButtonLink>
-          </div>
+        </Link>
+        <div className="xl:hidden">
+          <button onClick={toggleMenu} className="focus:outline-none">
+            {isOpen ? (
+              <AiOutlineClose size={24} />
+            ) : (
+              <AiOutlineMenu size={24} />
+            )}
+          </button>
         </div>
-      </Container>
+      </div>
+      <div className="hidden xl:flex flex-1 text-white items-center justify-between px-5 md:px-20">
+        <Link
+          href={"/contact"}
+          className="w-fit border border-white rounded-full px-7 py-3 uppercase text-sm"
+        >
+          Contact
+        </Link>
+        <nav className="">
+          <div className="hidden md:flex space-x-4">
+            {menuItems.map((item) => (
+              <Link
+                className="px-5 py-2 uppercase text-sm"
+                key={item.name}
+                href={item.href}
+              >
+                {item.name}
+              </Link>
+            ))}
+          </div>
+        </nav>
+      </div>
+      <MobileMenu isOpen={isOpen} toggleMenu={toggleMenu} />
     </div>
   );
 }

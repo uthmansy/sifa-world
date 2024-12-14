@@ -32,53 +32,35 @@ export const ContactForm = () => {
   };
 
   return (
-    <form ref={form} onSubmit={sendEmail} className=" space-y-4">
+    <form ref={form} onSubmit={sendEmail} className=" space-y-10">
       <div>
-        <label
-          htmlFor="user_name"
-          className="block text-sm font-medium text-gray-700"
-        >
-          Name
-        </label>
         <input
           type="text"
           name="user_name"
           id="user_name"
-          className="mt-1 block w-full px-4 py-2 border border-gray-300 text-sm focus:ring-green-800 focus:border-green-800"
+          className="mt-1 block w-full px-4 py-4 border border-gray-300 text-sm focus:ring-primary focus:border-primary"
           placeholder="Enter your name"
           required
         />
       </div>
 
       <div>
-        <label
-          htmlFor="user_email"
-          className="block text-sm font-medium text-gray-700"
-        >
-          Email
-        </label>
         <input
           type="email"
           name="user_email"
           id="user_email"
-          className="mt-1 block w-full px-4 py-2 border border-gray-300 text-sm focus:ring-green-800 focus:border-green-800"
+          className="mt-1 block w-full px-4 py-4 border border-gray-300 text-sm focus:ring-primary focus:border-primary"
           placeholder="Enter your email"
           required
         />
       </div>
 
       <div>
-        <label
-          htmlFor="message"
-          className="block text-sm font-medium text-gray-700"
-        >
-          Message
-        </label>
         <textarea
           name="message"
           id="message"
           rows={4}
-          className="mt-1 block w-full px-4 py-2 border border-gray-300 text-sm focus:ring-green-800 focus:border-green-800"
+          className="mt-1 block w-full px-4 py-4 border border-gray-300 text-sm focus:ring-primary focus:border-primary"
           placeholder="Type your message"
           required
         ></textarea>
@@ -88,7 +70,7 @@ export const ContactForm = () => {
         <button
           disabled={isSubmitting}
           type="submit"
-          className="w-full bg-green-800 text-white px-4 py-4 shadow hover:bg-green-700 transition duration-200 text-sm font-medium"
+          className="w-full bg-primary text-white px-4 py-4 shadow hover:bg-accent transition duration-200 text-sm font-medium"
         >
           {isSubmitting ? "Sending..." : "Send"}
         </button>

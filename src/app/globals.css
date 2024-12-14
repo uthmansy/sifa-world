@@ -1,133 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Encode+Sans+Condensed:wght@100;200;300;400;500;600;700;800;900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Serif+Display:ital,wght@0,100..900;1,100..900&display=swap");
-
-/* Importing local Neue Haas Display fonts */
-@font-face {
-  font-family: "Neue Haas Display Black";
-  src: url("/fonts/NeueHaasDisplay/NeueHaasDisplayBlack.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Neue Haas Display Black Italic";
-  src: url("/fonts/NeueHaasDisplay/NeueHaasDisplayBlackItalic.ttf")
-    format("truetype");
-  font-weight: normal;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: "Neue Haas Display Bold";
-  src: url("/fonts/NeueHaasDisplay/NeueHaasDisplayBold.ttf") format("truetype");
-  font-weight: bold;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Neue Haas Display Bold Italic";
-  src: url("/fonts/NeueHaasDisplay/NeueHaasDisplayBoldItalic.ttf")
-    format("truetype");
-  font-weight: bold;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: "Neue Haas Display Light";
-  src: url("/fonts/NeueHaasDisplay/NeueHaasDisplayLight.ttf") format("truetype");
-  font-weight: 300;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Neue Haas Display Light Italic";
-  src: url("/fonts/NeueHaasDisplay/NeueHaasDisplayLightItalic.ttf")
-    format("truetype");
-  font-weight: 300;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: "Neue Haas Display Medium";
-  src: url("/fonts/NeueHaasDisplay/NeueHaasDisplayMedium.ttf")
-    format("truetype");
-  font-weight: 500;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Neue Haas Display Medium Italic";
-  src: url("/fonts/NeueHaasDisplay/NeueHaasDisplayMediumItalic.ttf")
-    format("truetype");
-  font-weight: 500;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: "Neue Haas Display Roman";
-  src: url("/fonts/NeueHaasDisplay/NeueHaasDisplayRoman.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Neue Haas Display Roman Italic";
-  src: url("/fonts/NeueHaasDisplay/NeueHaasDisplayRomanItalic.ttf")
-    format("truetype");
-  font-weight: normal;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: "Neue Haas Display Thin";
-  src: url("/fonts/NeueHaasDisplay/NeueHaasDisplayThin.ttf") format("truetype");
-  font-weight: 100;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Neue Haas Display Thin Italic";
-  src: url("/fonts/NeueHaasDisplay/NeueHaasDisplayThinItalic.ttf")
-    format("truetype");
-  font-weight: 100;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: "Neue Haas Display XThin";
-  src: url("/fonts/NeueHaasDisplay/NeueHaasDisplayXThin.ttf") format("truetype");
-  font-weight: 100;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Neue Haas Display XThin Italic";
-  src: url("/fonts/NeueHaasDisplay/NeueHaasDisplayXThinItalic.ttf")
-    format("truetype");
-  font-weight: 100;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: "Neue Haas Display XXThin";
-  src: url("/fonts/NeueHaasDisplay/NeueHaasDisplayXXThin.ttf")
-    format("truetype");
-  font-weight: 100;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Neue Haas Display XXThin Italic";
-  src: url("/fonts/NeueHaasDisplay/NeueHaasDisplayXXThinItalic.ttf")
-    format("truetype");
-  font-weight: 100;
-  font-style: italic;
-}
-
-/* You can now use these fonts in your CSS */
-body {
-  font-family: "Neue Haas Display Roman", Arial, Helvetica, sans-serif;
-}
-
 @import url("https://fonts.cdnfonts.com/css/helvetica-neue-55");
 @import url("https://fonts.googleapis.com/css2?family=Encode+Sans+Condensed:wght@100;200;300;400;500;600;700;800;900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Encode+Sans+Condensed:wght@100;200;300;400;500;600;700;800;900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
@@ -136,12 +7,13 @@ body {
 @tailwind utilities;
 
 body {
-  font-family: "Neue Haas Display Roman", "inter", "helvetical neue", Arial,
-    Helvetica, sans-serif;
-  font-size: calc(16px + 0.2vw);
+  font-family: "helvetical neue", "inter", "helvetical neue", Arial, Helvetica,
+    sans-serif;
+  font-size: calc(14px + 0.2vw);
   /* line-height: 2rem; */
   -webkit-font-smoothing: antialiased; /* For Chrome, Safari */
   -moz-osx-font-smoothing: grayscale; /* For Firefox on macOS */
+  @apply text-gray-700 selection:bg-primary selection:text-accent;
 }
 
 [data-scroll-container] {

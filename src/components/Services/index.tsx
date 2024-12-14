@@ -1,49 +1,57 @@
-"use client";
-
-import React, { useLayoutEffect } from "react";
+import React, { useLayoutEffect, useRef } from "react";
 import Container from "../Container";
 import {
-  SERVICES_BG,
+  HERO_1,
   SERVICES_ICON_1,
   SERVICES_ICON_2,
   SERVICES_ICON_3,
+  SERVICES_ICON_4,
 } from "@/constants/IMAGES";
+import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 interface Service {
-  icon: string;
   title: string;
+  icon: string;
   description: string;
 }
 
-const services: Service[] = [
-  {
-    icon: SERVICES_ICON_1.src,
-    title: "Robust Services",
-    description:
-      "Delivering comprehensive agricultural solutions tailored to meet the diverse needs of farmers, businesses, and communities.",
-  },
-  {
-    icon: SERVICES_ICON_2.src,
-    title: "Quality Products",
-    description:
-      "Offering premium agricultural products that ensure reliability, sustainability, and exceptional value.",
-  },
-  {
-    icon: SERVICES_ICON_3.src,
-    title: "Customer Satisfaction",
-    description:
-      "Prioritizing our customers with personalized support and unwavering commitment to exceeding expectations.",
-  },
-];
-
 function Services() {
+  const services: Service[] = [
+    {
+      title: "Service One",
+      description: `Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Recusandae tempore amet rerum at.`,
+      icon: SERVICES_ICON_1.src,
+    },
+    {
+      title: "Service Two",
+      description: `Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Recusandae tempore amet rerum at.`,
+      icon: SERVICES_ICON_2.src,
+    },
+    {
+      title: "Service Three",
+      description: `Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Recusandae tempore amet rerum at.`,
+      icon: SERVICES_ICON_3.src,
+    },
+    {
+      title: "Service Four",
+      description: `Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Recusandae tempore amet rerum at.`,
+      icon: SERVICES_ICON_4.src,
+    },
+  ];
+
+  const containerRef = useRef(null);
+
   useLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
     gsap.fromTo(
       ".service",
-      { opacity: 0, y: 50 }, // Start with the image completely hidden (width = 0)
+      { opacity: 0, y: 100 }, // Start with the image completely hidden (width = 0)
       {
         opacity: 1,
         y: 0, // Expand to full width
@@ -51,42 +59,64 @@ function Services() {
         ease: "power3.out", // Smooth easing effect
         stagger: 0.3,
         scrollTrigger: {
-          trigger: ".service",
+          trigger: containerRef.current,
           start: "top 70%", // Start animation when image enters viewport
-          toggleActions: "play none none none", // Play animation once
+          // toggleActions: "play none none none", // Play animation once
         },
       }
     );
   }, []);
 
   return (
-    <section className="relative overflow-hidden">
-      <img
-        data-scroll
-        data-scroll-speed={-0.2}
-        src={SERVICES_BG.src}
-        alt=""
-        className="absolute w-full h-full top-0 left-0 opacity-30 object-cover"
-      />
+    <section className="relative">
+      <div className="absolute hidden md:block top-0 bottom-0 left-0 w-[50%] h-full z-0">
+        <img
+          src={HERO_1.src}
+          alt=""
+          className="w-full h-full object-cover"
+          style={{ filter: "brightness(25%)" }}
+        />
+        <div className="absolute top-0 bottom-0 left-0 right-0 h-full w-full bg-secondary opacity-65" />
+      </div>
+
       <Container>
-        <div className="py-24 md:py-28 flex flex-col space-y-10 text-center relative">
-          <span className="uppercase">- Why Us -</span>
-          <h2 className="font-heading text-3xl md:text-5xl font-semibold text-green-800">
-            This is Why we are currently the Best
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-3 py-24 md:py-28 gap-20 relative">
+          <div className="md:text-white">
+            <h2 className="text-4xl md:text-6xl font-semibold mb-10">
+              Our services
+            </h2>
+            <p className="opacity-70">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Non
+              asperiores maxime nemo cupiditate quis atque. Natus, in. Facilis
+              ipsa molestiae eius esse porro debitis quos, qui, omnis est
+              repudiandae dolore.
+            </p>
+          </div>
+          <div
+            ref={containerRef}
+            className="md:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-7"
+          >
             {services.map((service, index) => (
               <div
                 key={index}
-                className="service px-14 py-24 flex flex-col items-center space-y-4 bg-white border border-b-8 border-b-green-800 border-opacity-40"
+                className="service flex flex-col space-y-8 shadow-md p-14 border bg-white justify-between"
               >
-                <div className="h-28 w-28 flex items-center justify-center rounded-full bg-green-200">
-                  <img src={service.icon} alt="" className="w-14" />
+                <div className="flex flex-col space-y-3">
+                  <img
+                    src={service.icon}
+                    alt=""
+                    className="w-14 h-14 object-cover"
+                  />
+                  <h3 className="uppercase font-bold">{service.title}</h3>
+                  <span className="w-14 h-[2px] opacity-70 bg-primary"></span>
                 </div>
-                <h3 className="text-2xl font-bold text-green-800">
-                  {service.title}
-                </h3>
-                <p className="text-gray-600">{service.description}</p>
+                <p>{service.description}</p>
+                <Link
+                  href={"/about"}
+                  className="w-fit px-6 py-3 text-sm border border-primary uppercase"
+                >
+                  Read More
+                </Link>
               </div>
             ))}
           </div>
