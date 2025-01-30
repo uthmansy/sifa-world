@@ -15,11 +15,9 @@ function Footer() {
                 <img src={LOGO_WHITE.src} alt="logo" className="h-14 md:h-16" />
                 <div className="text-white">
                   <h2 className="font-bold uppercase text-xl md:text-2xl tracking-wide">
-                    Trend Ab
+                    Sifa World
                   </h2>
-                  <div className="uppercase text-sm tracking-widest">
-                    Integrated Farms
-                  </div>
+                  <div className="uppercase text-sm tracking-widest"></div>
                 </div>
               </div>
             </Link>
@@ -49,7 +47,7 @@ function Footer() {
                 Follow Us
               </h4>
               <ul className="flex flex-col space-y-3">
-                <li>info@trendab</li>
+                <li>info@sifaworld.com</li>
                 <li className="flex items-center space-x-3">
                   <Link
                     href={"x.com"}
@@ -75,7 +73,7 @@ function Footer() {
           </div>
         </div>
         <p className="w-fit md:ml-auto mt-10 opacity-70">
-          &copy; Trend AB Integrated Farms. All Rights Reserved.
+          &copy; Sifa World. All Rights Reserved.
         </p>
       </Container>
     </footer>
